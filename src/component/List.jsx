@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { styled } from "styled-components";
 
 function List({ todos, setTodos }) {
-  const [like, setLike] = useState([0, 0, 0]);
-
   return (
     <div>
       <div>
@@ -23,19 +20,21 @@ function List({ todos, setTodos }) {
               </button>
               <span
                 onClick={() => {
-                  let likeCnt = [...like];
-                  likeCnt[i] += 1;
-                  setLike(likeCnt);
-
-                  // let likeCnt = [...like];
-                  // let likeCnt = like;
-                  // likeCnt[i] += 1;
-                  // setLike(likeCnt);
+                  item.likeCount++;
+                  setTodos(
+                    todos.map((item) => {
+                      return {
+                        id: item.id,
+                        title: item.title,
+                        likeCount: item.likeCount,
+                      };
+                    })
+                  );
                 }}
               >
                 ♡
               </span>
-              {like[i]}
+              {item.likeCount}
             </div>
           );
         })}

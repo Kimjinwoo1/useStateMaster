@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 
 function DarkMode() {
-  const [darkMode, setDarkMode] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   const clickCheckBox = () => {
     setDarkMode(!darkMode);

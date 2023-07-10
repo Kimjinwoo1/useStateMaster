@@ -18,6 +18,7 @@ function Input({ setTodos, todos }) {
           const newTodo = {
             title: title,
             id: uuid(),
+            likeCount: 0,
           };
           setTodos([...todos, newTodo]);
 
